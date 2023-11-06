@@ -91,18 +91,6 @@ class authController {
 
     async refresh(req, res) {
         try {
-            if (!(RTCOOKIE in req.cookies)) {
-                res.sendStatus(400);
-                return;
-            }
-            jwt.verify(req.cookies[RTCOOKIE], refreshTokenSecret, (err, payload) => {
-                if (err) {
-                    res.sendStatus(403);
-                    return;
-                }
-                res.cookie("Access-Token", generateAccessToken(payload._id, payload.login))
-                res.sendStatus(200);
-            });
         } catch (e) {
             console.log(e)
             res.status(400).json({ message: 'Refresh error' })
