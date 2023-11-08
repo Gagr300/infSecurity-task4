@@ -10,7 +10,7 @@ app.use("/task", authRouter)
 
 const start = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://qwerty:qwerty123@cluster0.vrzej19.mongodb.net/`)
+        await mongoose.connect(`...`)
         app.listen(PORT, () => console.log(`server sterted on port ${PORT}`))
     } catch (e) {
         console.log(e)
